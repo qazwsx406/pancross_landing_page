@@ -982,40 +982,123 @@
 								data-aos-delay="200"
 							>
 								<div class="row gy-4">
-									<div class="col-md-6">
-										<input type="text" name="name" class="form-control" placeholder="이름을 입력해주세요" required="" />
-									</div>
-
-									<div class="col-md-6">
-										<input
-											type="email"
-											class="form-control"
-											name="email"
-											placeholder="이메일을 입력해주세요"
-											required=""
-										/>
-									</div>
-
+									<!-- 브랜드 선택 -->
 									<div class="col-md-12">
+										<label for="brand" class="form-label">브랜드 선택</label>
+										<select id="brand" name="brand" class="form-control" required>
+											<option value="">브랜드를 선택해주세요</option>
+											<option value="브랜드1">브랜드1</option>
+											<option value="브랜드2">브랜드2</option>
+											<!-- 필요에 따라 더 추가 -->
+										</select>
+									</div>
+
+									<!-- 이름 & 전화번호 -->
+									<div class="col-md-6">
+										<label for="name" class="form-label">이름</label>
 										<input
 											type="text"
+											id="name"
+											name="name"
 											class="form-control"
-											name="subject"
-											placeholder="브랜드명을 입력해주세요"
-											required=""
+											placeholder="이름을 입력해주세요"
+											required
+										/>
+									</div>
+									<div class="col-md-6">
+										<label for="phone" class="form-label">전화번호</label>
+										<input
+											type="tel"
+											id="phone"
+											name="phone"
+											class="form-control"
+											placeholder="전화번호를 입력해주세요"
+											required
 										/>
 									</div>
 
+									<!-- 이메일 -->
 									<div class="col-md-12">
+										<label for="email" class="form-label">이메일</label>
+										<input
+											type="email"
+											id="email"
+											name="email"
+											class="form-control"
+											placeholder="이메일을 입력해주세요"
+											required
+										/>
+									</div>
+
+									<!-- 창업희망지역 -->
+									<div class="col-md-12">
+										<label for="location" class="form-label">창업희망지역</label>
+										<input
+											type="text"
+											id="location"
+											name="location"
+											class="form-control"
+											placeholder="창업희망지역을 입력해주세요"
+										/>
+									</div>
+
+									<!-- 입점희망점포 -->
+									<div class="col-md-12">
+										<label for="store" class="form-label">입점희망점포</label>
+										<input
+											type="text"
+											id="store"
+											name="store"
+											class="form-control"
+											placeholder="입점희망점포를 입력해주세요"
+										/>
+									</div>
+
+									<!-- 추가정보입력 -->
+									<div class="col-md-12">
+										<label for="message" class="form-label">추가입력정보</label>
 										<textarea
 											class="form-control"
+											id="message"
 											name="message"
 											rows="6"
-											placeholder="추가입력정보를 입력해주세요"
-											required=""
+											placeholder="추가 정보를 입력해주세요"
 										></textarea>
 									</div>
 
+									<!-- 개인정보 동의 안내문 -->
+									<div class="col-md-12">
+										<div class="privacy-box p-3" style="border: 1px solid #ccc">
+											<p><strong>개인정보를 보호를 위한 이용자 동의서</strong></p>
+											<p>
+												판코로스 창업문의 및 설명회 신청 관련 개인정보 수집내용(필수)
+												<br />
+												1. 개인정보의 수집 및 이용 목적
+												<br />
+												- 판코로스 브랜드 창업 문의에 대한 원활한 상담
+												<br />
+												- 판코로스 창업 관련 정보 안내
+												<br />
+												2. 수집하는 개인정보 항목
+												<br />
+												- 이름, 휴대전화번호, 이메일, 창업희망지역, 점포소유여부(문의 시, 점포주소지)
+												<br />
+												3. 개인정보 보유 및 이용기간
+												<br />
+												- 이용 목적 달성 후, 내부규정에 따라 보관 및 지원(해당 시)
+												<br />
+												※ 거부하실 경우 개인정보 수집이 불가능하여 창업상담 서비스 이용이 제한될 수 있습니다.
+											</p>
+											<div>
+												<label style="margin-right: 1rem"
+													><input type="radio" name="privacy" value="agree" required /> 동의합니다</label
+												>
+												<label><input type="radio" name="privacy" value="disagree" /> 동의하지 않습니다</label>
+											</div>
+										</div>
+									</div>
+
+									<!-- 버튼 및 로딩/메시지 영역 -->
 									<div class="col-md-12 text-center">
 										<div class="loading">Loading</div>
 										<div class="error-message"></div>

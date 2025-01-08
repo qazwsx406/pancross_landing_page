@@ -99,7 +99,7 @@
 					</div>
 
 					<div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-						<div class="col-xl-2 col-md-4 " data-aos="fade-up" data-aos-delay="300">
+						<div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
 							<div class="icon-box">
 								<i class="bi bi-binoculars mb-3"></i>
 								<h6><a href="">특수상권 입점 전문</a></h6>
@@ -973,33 +973,33 @@
 							<!-- End Info Item -->
 						</div>
 
+						<!-- 입력 폼 시작 -->
 						<div class="col-lg-8">
-							<form
-								action="forms/contact.php"
-								method="post"
-								class="php-email-form"
-								data-aos="fade-up"
-								data-aos-delay="200"
-							>
+							<form id="contact-form" data-aos="fade-up" data-aos-delay="200">
 								<div class="row gy-4">
 									<!-- 브랜드 선택 -->
 									<div class="col-md-12">
 										<label for="brand" class="form-label">브랜드 선택</label>
 										<select id="brand" name="brand" class="form-control" required>
 											<option value="">브랜드를 선택해주세요</option>
-											<option value="브랜드1">브랜드1</option>
-											<option value="브랜드2">브랜드2</option>
+											<option value="부산빨간어묵포차">부산빨간어묵포차</option>
+											<option value="한마리뚝닭">한마리뚝닭</option>
+											<option value="이포어묵">이포어묵</option>
+											<option value="바다해어묵">바다해어묵</option>
+											<option value="더 어">더 어</option>
+											<option value="크로붕">크로붕</option>
+											<option value="붕어애빠지다">붕어애빠지다</option>
 											<!-- 필요에 따라 더 추가 -->
 										</select>
 									</div>
 
 									<!-- 이름 & 전화번호 -->
 									<div class="col-md-6">
-										<label for="name" class="form-label">이름</label>
+										<label for="cname" class="form-label">이름</label>
 										<input
 											type="text"
-											id="name"
-											name="name"
+											id="cname"
+											name="to_name"
 											class="form-control"
 											placeholder="이름을 입력해주세요"
 											required
@@ -1023,7 +1023,7 @@
 										<input
 											type="email"
 											id="email"
-											name="email"
+											name="to_email"
 											class="form-control"
 											placeholder="이메일을 입력해주세요"
 											required
@@ -1097,16 +1097,11 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- 버튼 및 로딩/메시지 영역 -->
-									<div class="col-md-12 text-center">
-										<div class="loading">Loading</div>
-										<div class="error-message"></div>
-										<div class="sent-message">Your message has been sent. Thank you!</div>
-
 										<button type="submit">문의 보내기</button>
 									</div>
 								</div>
+								<!-- 문의시간을 저장할 hidden 필드 -->
+								<input type="hidden" name="send_time" id="send_time" />
 							</form>
 						</div>
 						<!-- End Contact Form -->
@@ -1200,7 +1195,6 @@
 
 		<!-- Vendor JS Files -->
 		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/vendor/php-email-form/validate.js"></script>
 		<script src="assets/vendor/aos/aos.js"></script>
 		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -1210,5 +1204,46 @@
 
 		<!-- Main JS File -->
 		<script src="assets/js/main.js"></script>
+
+		<!-- emailJS setting start -->
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script>
+			(function () {
+				// EmailJS 초기화
+				emailjs.init({
+				publicKey: "CcwVwV-hp5k8N0gr2",
+				});
+			})();
+		
+		// 폼 이벤트 등록
+		document.getElementById("contact-form").addEventListener("submit", function (event) {
+			event.preventDefault();
+
+			// 현재 시간 문자열을 hidden 필드에 저장
+			const now = new Date().toLocaleString(); 
+			document.getElementById("send_time").value = now;
+		
+			// 개인정보 동의 체크 로직 (예시)
+			const privacyValue = document.querySelector('input[name="privacy"]:checked');
+			if (!privacyValue || privacyValue.value !== 'agree') {
+			alert("개인정보에 동의하지 않으면 문의하실 수 없습니다.");
+			return;
+			}
+		
+			// EmailJS 전송
+			emailjs.sendForm("service_t8rig5i", "template_fi2572n", this).then(
+			() => {
+				console.log("SUCCESS!");
+				alert("send mail complete!!!");
+			},
+			(error) => {
+				console.log("FAILED...", error);
+				alert("send mail fail!!!");
+			}
+			);
+		});
+		</script>
+		<!-- emailJS setting done -->
+
 	</body>
 </html>

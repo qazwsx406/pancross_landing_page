@@ -1,2 +1,39 @@
-# .gitignore
+# Node modules
+/node_modules/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Yarn Berry local cache and configuration files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Environment secrets
 .env
+
+# Build output
+/dist/
+
+# Vercel builds
+.vercel/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+*.sublime*
+.vscode/

@@ -1202,48 +1202,8 @@
 		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 		<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-		<!-- Main JS File -->
 		<script src="assets/js/main.js"></script>
-
-		<!-- emailJS setting start -->
-		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-		<script>
-			(function () {
-				// EmailJS 초기화
-				emailjs.init({
-				publicKey: "CcwVwV-hp5k8N0gr2",
-				});
-			})();
-		
-		// 폼 이벤트 등록
-		document.getElementById("contact-form").addEventListener("submit", function (event) {
-			event.preventDefault();
-
-			// 현재 시간 문자열을 hidden 필드에 저장
-			const now = new Date().toLocaleString(); 
-			document.getElementById("send_time").value = now;
-		
-			// 개인정보 동의 체크 로직 (예시)
-			const privacyValue = document.querySelector('input[name="privacy"]:checked');
-			if (!privacyValue || privacyValue.value !== 'agree') {
-			alert("개인정보에 동의하지 않으면 문의하실 수 없습니다.");
-			return;
-			}
-		
-			// EmailJS 전송
-			emailjs.sendForm("service_t8rig5i", "template_fi2572n", this).then(
-			() => {
-				console.log("SUCCESS!");
-				alert("send mail complete!!!");
-			},
-			(error) => {
-				console.log("FAILED...", error);
-				alert("send mail fail!!!");
-			}
-			);
-		});
-		</script>
-		<!-- emailJS setting done -->
+		<script type="module" src="./src/email.js"></script>
 
 	</body>
 </html>

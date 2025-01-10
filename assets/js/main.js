@@ -102,7 +102,23 @@
       mirror: false
     });
   }
-  window.addEventListener('load', aosInit);
+  
+  window.addEventListener('load', () => {
+    aosInit();
+
+    setTimeout(() => {
+      AOS.refresh();
+      console.log('AOS refreshed after load');
+    }, 1000); // Delay to allow layout stabilization
+  });
+
+  // document.querySelectorAll('[data-aos]').forEach(el => {
+  //   AOS.refresh();
+  //   console.log(el.getBoundingClientRect());
+  // });
+
+  // Select all elements with AOS animations
+const animatedElements = document.querySelectorAll('[data-aos]');
 
   /**
    * Init swiper sliders

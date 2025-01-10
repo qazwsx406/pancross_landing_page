@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+@font-face {
+  font-family: Pretendard;
+  src: url('../font/Pretendard-1.3.9/public/variable/PretendardVariable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /**
 * Template Name: Gp
 * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
@@ -12,9 +20,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Pretendard", "Noto Sans KR", "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Pretendard", sans-serif;
+  --nav-font: "Pretendard", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -882,11 +890,11 @@ section,
   transition: ease-in-out 0.3s;
 }
 
-.hero .icon-box:hover {
+.hero /*.icon-box:hover*/ {
   border-color: var(--accent-color);
 }
 
-.hero .icon-box:hover h3 a {
+.hero /*.icon-box:hover*/ h3 a {
   color: var(--accent-color);
 }
 

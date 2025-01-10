@@ -623,7 +623,7 @@ h6 {
 
 .footer .credits {
   margin-top: 5px;
-  font-size: 13px;
+  font-size: 1px;
 }
 
 /*--------------------------------------------------------------
@@ -1723,4 +1723,18 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+.submitBtn {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.submitBtn:hover {
+  background: none;
+  border: 2px solid var(--accent-color);
 }
